@@ -1,26 +1,20 @@
 class Solution {
     public int[] diStringMatch(String s) {
-        int index = 0;
-        int[] num = new int[s.length()+1];
-        ArrayList<Integer> al = new ArrayList<>();
+        int n = s.length();
+        int[] num = new int[n+1];
+        int low = 0, high = n;
 
-        int i = 0, d = s.length();
-        for(int j=0; j<=s.length(); j++){
-            al.add(j);
-        }
-        int n=0;
-        while(i<d){
-            if(s.charAt(n)=='I'){
-                num[index++] = al.get(i);
-                i++;
+        for(int i=0; i<n; i++){
+            if(s.charAt(i) == 'I'){
+                num[i] = low;
+                low++;
             }
             else{
-                num[index++] = al.get(d);
-                d--;
+                num[i] = high;
+                high--;
             }
-            n++;
         }
-        num[index++]=al.get(i);
-    return num;
+        num[n] = low;
+        return num;
     }
 }
