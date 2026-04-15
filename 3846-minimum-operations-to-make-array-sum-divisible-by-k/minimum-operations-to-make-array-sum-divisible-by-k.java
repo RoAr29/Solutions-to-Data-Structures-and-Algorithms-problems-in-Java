@@ -1,12 +1,9 @@
 class Solution {
     public int minOperations(int[] nums, int k) {
-        Arrays.sort(nums);
-        int count = 0;
-
-        while(Arrays.stream(nums).sum()%k != 0){
-            nums[nums.length-1] = nums[nums.length-1] - 1;
-            count++;
+        int sum = 0;
+        for(int i : nums){
+            sum += i;
         }
-        return count;
+        return sum%k;
     }
 }
