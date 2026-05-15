@@ -4,7 +4,7 @@ class Solution {
 
         for(int i=0; i<nums.size(); i++){
             for(int j=i+1; j<nums.size(); j++){
-                if(j!=i && nums.get(i) + nums.get(j) < target){
+                if(nums.get(i) + nums.get(j) < target){
                     count++;
                 }
             }
