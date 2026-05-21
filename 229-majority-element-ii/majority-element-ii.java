@@ -6,7 +6,7 @@ class Solution {
         for(int num: nums){
             hs.put(num, hs.getOrDefault(num, 0)+1);
 
-            if(hs.get(num) > nums.length/3 && !al.contains(num)){
+            if(hs.get(num) == nums.length/3 + 1){
                 al.add(num);
             }
         }
