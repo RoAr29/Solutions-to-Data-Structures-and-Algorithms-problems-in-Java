@@ -1,17 +1,32 @@
 class Solution {
     public int findPeakElement(int[] nums) {
-        int left = 0;
-        int right = nums.length - 1;
+        int peak = Integer.MIN_VALUE;
 
-        while (left < right) {
-            int mid = (left + right) / 2;
-            if (nums[mid] > nums[mid + 1]) {
-                right = mid;
-            } else {
-                left = mid + 1;
+        int i = 0, j = nums.length-1;
+
+        if(nums.length == 1) return 0;
+
+        while(i<=j){
+            if(i == 0){
+                if(nums[i] > nums[i+1]){
+                    return i;
+                }
             }
-        }
+            if(j == nums.length-1){
+                if(nums[j] > nums[j-1]){
+                    return j;
+                }
+            }
 
-        return left;        
+            else if(nums[i] > nums[i-1] && nums[i] > nums[i+1]){
+                return i;
+            }
+            else if(nums[j] > nums[j-1] && nums[j] > nums[j+1]){
+                return j;
+            }
+            i++;
+            j--;
+        }
+        return -1;
     }
 }
