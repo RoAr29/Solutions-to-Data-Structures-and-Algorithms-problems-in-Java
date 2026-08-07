@@ -1,28 +1,18 @@
+
 class Solution {
-    public int rob(int[] nums) {
+public int rob(int[] nums) {
 
-        int[] dp = new int[nums.length];
+    int[] dp = new int[nums.length+2];
+    int n = nums.length;
 
-        Arrays.fill(dp, -1);
-        
-       return solve(nums, 0, dp);
+    dp[n] = 0;
+    dp[n+1] = 0;
+    
+    for(int i=n-1; i>=0; i--){
+       dp[i] = Math.max(dp[i+2] + nums[i], dp[i+1]);
     }
 
-    public int solve(int[] nums,int i, int[] dp){
+    return dp[0];
+}
 
-        if(i >= nums.length){
-        return 0;
-        } 
-
-       if(dp[i] != -1){
-        return dp[i];
-       }
-
-       int choice1 = nums[i] + solve(nums, i+2, dp);
-       int choice2 = solve(nums, i+1, dp);
-
-       dp[i] = Math.max(choice1, choice2);
-
-       return dp[i];
-    }
 }
