@@ -2,7 +2,7 @@ class Solution {
     public int search(int[] nums, int target) {
         int low = 0, high = nums.length-1;
 
-        if(nums.length==1 && target == nums[0]) return 0;
+        //if(nums.length==1 && target == nums[0]) return 0;
 
         while(low <= high){
             int mid = (low + high)/2;
