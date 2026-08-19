@@ -1,7 +1,7 @@
 class Solution {
     public int pivotIndex(int[] nums) {
 
-        System.gc();
+        //System.gc();
 
         int total = 0;
         int left = 0, right = 0;
