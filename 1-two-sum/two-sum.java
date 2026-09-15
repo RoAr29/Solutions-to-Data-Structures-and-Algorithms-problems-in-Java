@@ -3,15 +3,11 @@ class Solution {
         HashMap<Integer, Integer> hs = new HashMap<>();
 
         for(int i=0; i<nums.length; i++){
-            int secondVal = target - nums[i];
-
-            if(hs.containsKey(secondVal)){
-                return new int[]{i,hs.get(secondVal)};
+            if(hs.containsKey(target - nums[i])){
+                return new int[]{hs.get(target - nums[i]), i};
             }
-
-            hs.put(nums[i], i);
+                hs.put(nums[i], i);
         }
-
         return new int[]{};
     }
 }
