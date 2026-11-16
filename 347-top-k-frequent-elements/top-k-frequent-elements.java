@@ -3,17 +3,17 @@ class Solution {
         HashMap<Integer, Integer> hs = new HashMap<>();
 
         for(int i:nums){
-            hs.put(i, hs.getOrDefault(i, 0)+1);
+            hs.put(i, hs.getOrDefault(i, 0) + 1);
         }
 
-        List<Integer> list = new ArrayList<>(hs.keySet());
+        PriorityQueue<Integer> nem = new PriorityQueue<>((a, b) -> hs.get(b) - hs.get(a));
+        
+        nem.addAll(hs.keySet());
 
-        list.sort((a,b) -> hs.get(b) - hs.get(a));
-
-        int[] ans = new int[k];
-        for(int i=0; i<k; i++){
-            ans[i] = list.get(i);
+        int[] result = new int[k];
+        for (int i = 0; i < k; i++) {
+            result[i] = nem.poll();
         }
-        return ans;
+        return result;
     }
 }
